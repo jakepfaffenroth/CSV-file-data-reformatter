@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Data Restructure</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- <link rel="stylesheet" href="styles.css" /> -->
+  <style>
+    body {
+      padding: 1rem 2rem;
+    }
+    .no-select {
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+    }
+
+    #input-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100vw;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #restart-btn {
+      position: absolute;
+      right: 0;
+      margin-right: 2rem;
+    }
+    #output {
+      table-layout: fixed;
+      width: auto;
+    }
+    .table-cell {
+      width: 4rem;
+      padding: 1rem;
+    }
+    .clickable {
+      cursor: pointer;
+      border: solid transparent 2px;
+      border-radius: 0.5rem;
+    }
+    .clickable:hover {
+      border-color: darkgray;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSV Formatter</h1>
+  <h2 id="msg">Step 1: Choose a .csv file</h2>
+  <h3 id="sub-msg">
+    Cells must separated by commas, and rows separated by linebreaks. Remove all
+    commas from cells before exporting csv.
+  </h3>
+  <div id="input-container">
+    <div id="file-container">
+      <label for="file-picker">Choose a file:</label>
+      <input id="file-picker" type="file" name="file-picker" />
+      <button id="submit-btn">Submit</button>
+    </div>
+    <div id="format-container" class="hidden">
+      <!-- <label for="repeat-count">How many columns repeat?</label>
+      <input id="repeat-count" type="number" name="repeat-count" /> -->
+      <button id="continue-btn">Continue</button>
+      <button id="format-btn" class="hidden">Format</button>
+      <!-- <label for="sort1">First sort column:</label>
+      <select name="sort1" id="sort1" class="sorter">
+        <option value="0">Default: First selected</option>
+      </select>
+      <label for="sort2">Second sort column:</label>
+      <select name="sort2" id="sort2" class="sorter">
+        <option value="1">Default: Second selected</option>
+      </select>
+      <label for="sort3">Third sort column:</label>
+      <select name="sort3" id="sort3" class="sorter">
+        <option value="2">Default: Third selected</option>
+      </select> -->
+    </div>
+    <a id="export-btn" class="hidden"><button>Export</button></a>
+    <button id="restart-btn">Start fresh</button>
+    <!-- </form> -->
+  </div>
+  <div style="display: block">
+    <h4 id="filename"></h4>
+    <table id="output"></table>
+  </div>
+
+  <script src="index.js" type="module" async defer></script>
+</body>
